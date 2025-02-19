@@ -212,13 +212,25 @@ function isPalindrome(palindromeString){
 
 }
 
-function sortStrings(stringToSort){
-    //if stringToSort is empty, return stringToSort
-    if (stringToSort.length == 0) {
-        return stringToSort;
+function sortStrings(arr) {
+    // If arr is empty, return it
+    if (arr.length == 0) {
+        return arr;
     }
-    return stringToSort.sort((a,b)=> a.localeCompare(b));
+    for (let i = 0; i < arr.length - 1; i++) {
+        for (let j = 0; j < arr.length - 1 - i; j++) {
+            if (arr[j].localeCompare(arr[j + 1]) > 0) {
+                let temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+
+    // Return the sorted array
+    return arr;
 }
+
 
 function stats(numsList) {
     //if numsList is empty, return 0,0
@@ -295,14 +307,24 @@ function isPowerOf2(num){
     return true;  
 }
 
-function sortDescending(numsList){
-//if numsList is empty, return it
-if (numsList.length == 0) {
-    return numsList;
+function sortDescending(numsList) {
+    if (numsList.length == 0) {
+        return numsList;
     }
-numsList = numsList.sort((a, b) => b - a);
-return numsList;
+
+    for (let i = 0; i < numsList.length - 1; i++) {
+        for (let j = 0; j < numsList.length - 1 - i; j++) {
+            if (numsList[j] < numsList[j + 1]) {
+                let temp = numsList[j];
+                numsList[j] = numsList[j + 1];
+                numsList[j + 1] = temp;
+            }
+        }
+    }
+
+    return numsList;
 }
+
 
 //testing functions
 
@@ -317,7 +339,7 @@ console.log(factorize(12));
 console.log(deduplicate([]));
 console.log(findShortestString([]));
 console.log(isPalindrome(""));
-console.log(sortStrings( [""]))
+console.log(sortStrings( ["banana","banana","apple","cucumber"]))
 console.log(stats([]))
 console.log(popularString([""]));
 console.log(isPowerOf2(1));

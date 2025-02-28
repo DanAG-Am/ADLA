@@ -1,0 +1,33 @@
+*{
+    margin: 10px; 
+}
+h1{
+    color: blue;
+    padding: 15px;
+}
+
+body{
+    margin: 0;
+}
+
+header{
+    border: red 2px solid;
+    border-radius: 100px;
+    margin: 20px;
+    padding: 20px;
+}
+
+footer{
+    border: blue 2px solid;
+}
+
+nav{
+    border: orange 3px solid; 
+    background-image: url("../pictures/images.jpeg");
+}
+
+footer p{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 15px;
+}

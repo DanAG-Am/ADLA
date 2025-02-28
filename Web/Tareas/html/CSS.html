@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..\css\blog_css.css">
+    <title>About CSS</title>
+</head>
+<body>
+    <!-- Header section introducing the blog -->
+    <header><em>CSS cheatsheet and explanation</em></header>
+    <!-- Main heading and introduction paragraph -->
+    <h1>Welcome to the CSS section!</h1>
+    <p>This page will talk about the usage of CSS to bring your webpage to life through color, order, shape and cohesiveness.</p>
+    <hr> <!-- Divider between sections -->
+    <section>
+        <h2>What is CSS?</h2>
+        <p>CSS stands for Cascading Style Sheets. It is a language used to define the visual presentation of a webpage. CSS allows you to style and layout HTML elements, controlling things like colors, fonts, spacing, positioning, and responsiveness of the page. By separating the structure (HTML) from the style (CSS), it allows for easier design and maintenance of websites.</p>
+    </section>
+
+    <section>
+        <h2>Selectors, Properties, and Values</h2>
+        <p>In CSS, you target HTML elements using <strong>selectors</strong>, and you apply <strong>properties</strong> to them with corresponding <strong>values</strong>.</p>
+        
+        <p><strong>Selector:</strong> A CSS selector is used to target an HTML element to apply a style with a value to it. Examples of selectors include element names, classes, and IDs. IDs have the most weight as selectors, since these are the most specific.
+            Sometimes, you may need to apply a style to a very specific element without changing its surroundings ones.
+            <br>Other times, you may need to apply the same style to a large section of the page, so using less specific selectors, such as type. This enables efficiency for this case. </br></p>
+        
+        <p><strong>Property:</strong> A property defines the style to be applied. Examples of properties are <code>color</code>, <code>font-size</code>, <code>background-color</code>, <code>margin</code>, <code>padding</code>, etc.</p>
+        
+        <p><strong>Value:</strong> A value is assigned to a property. For example, for the property <code>color</code>, the value could be <code>red</code>, <code>#ff0000</code>, or <code>rgb(255, 0, 0)</code>.</p>
+        
+    <!--www.naukri.com. (n.d.). Code 360 by Coding Ninjas. 2024 Naukri.com. https://www.naukri.com/code360/library/pre-tag-in-html#:~:text=advantages%20and%20disadvantages.-,What%20is%20the%20Pre%20Tag%20in%20HTML%3F,are%20preserved%20in%20the%20text.
+    decided to use the pre tag because unlike the code tag, it does not write everything in one line.-->
+        <pre> 
+                h1 {
+                color: blue; /*where property is color and its value is blue*/
+                font-size: 20px; /*where the property is font size and it is applied with a value of 20 pixels*/
+                }
+        </pre>
+    </section>
+
+    <section>
+        <h2>Types of Selectors</h2>
+        <p>There are different types of selectors in CSS, which allow you to target elements according to the needs and semantic style that your webpage has acquired:</p>
+        
+        <ul>
+            <li><strong>Type Selector:</strong> It targets all instances of a specific HTML element. For example, <code>h1</code> will target all h1 tags on the page.</li>
+            <li><strong>Class Selector:</strong> A class selector targets elements that share the same class attribute. "class =" can be found within a tag. It is denoted by a period <code>.</code> before the class name. For example, <code>.githubcontent</code> will target all elements with the class <code>githubcontent</code>.</li>
+            <li><strong>ID Selector:</strong> An ID selector targets a specific element with a unique ID, which can also be found within tags. It is denoted by a hash <code>#</code> before the ID name. For example, <code>#mainContent</code> will target the element with the ID <code>mainContent</code>.</li>
+        </ul>
+
+        <h3>Example of Selectors:</h3>
+        <pre>
+        /* Type Selector, targets all instances of paragraphs */
+        p {
+            color: green;
+        }
+
+        /* Class Selector, targets closed within githubcontent class tags */
+        .githubcontent{
+            background-color: yellow;
+        }
+
+        /* ID Selector, targets by a unique id or name, can also be complemented with a class instead it is repeated, but this is not a good practice. */
+        #uniqueTitle {
+            font-weight: bold;
+        }
+        </pre>
+    </section>
+
+    <hr> <!-- Divider between sections -->
+    <!-- Navigation menu linking to other pages -->
+    <nav>
+        <ul>
+            <!-- Link to Terminal Commands page -->
+            <a href="command.html">About Terminal commands.</a><br>
+            <!-- Link to Git and Github page -->
+            <a href="Github.html">About Git and Github.</a><br>
+            <!-- Link to landing page -->
+            <a href="Blog.html">Return to landing page</a>
+        </ul>
+    </nav>
+    <hr> <!-- Divider between sections -->
+    <!-- Footer section with author information -->
+    <footer>Amilka Lopez A01029277</footer>
+</body>
+</html>

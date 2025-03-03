@@ -1,1 +1,0 @@
-mode.push(Number(num))

@@ -50,6 +50,64 @@ body{
     background-color: lightcyan;
 }
 
+.grid-item-2{
+    background: rgb(221, 180, 221);
+    padding: 10px;
+    border: 5px solid lightgrey;
+}
+
+.grid-container-2{
+
+    height: calc(100% - 16px);
+
+    display: grid;
+
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 1fr 3fr 1fr;
+
+    /*add padding to the top and bottom*/
+    padding: 50px;
+
+    gap: 30px;
+    grid-template-areas: 
+        "header header ."
+}
+
+#grid-item-one{
+    background-color: lightcoral;
+    grid-column: 1 / 4;
+    grid-row: span 1;
+    height: 65px;
+}
+
+#grid-item-two{
+    background-color: lightgreen;
+    grid-column: 1 / 2; /* Positions it in the first column */
+    grid-row: span 10;    /* Makes it span across 2 rows (beneath item 1) */
+    height: calc(100%-16px);
+}
+
+#grid-item-three{
+    background-color: lightblue;
+    grid-column: span 2; /* Positions it in the first column */
+    grid-row: span 1;    /* Makes it span across 2 rows (beneath item 1) */
+    height: calc(100%-16px);
+}
+
+#grid-item-four{
+    background-color: lightyellow;
+    grid-column: span 1; /* Positions it in the first column */
+    grid-row: span 9;    /* Makes it span across 2 rows (beneath item 1) */
+    height: calc(100%-16px);
+}
+
+#grid-item-five{
+    background-color: lightpink;
+    grid-column: span 1; /* Positions it in the first column */
+    grid-row: span 9;    /* Makes it span across 2 rows (beneath item 1) */
+    height: calc(100%-16px);
+}
+
 a {
     color: #a3d8d8;
     text-decoration: none;

@@ -3,13 +3,13 @@ body{
     height: 100vh;
 }
 
-.grid-item{
+.grid-item-2{
     background: rgb(221, 180, 221);
     padding: 10px;
     border: 5px solid lightgrey;
 }
 
-.grid-container{
+.grid-container-2{
 
     height: calc(100% - 16px);
 

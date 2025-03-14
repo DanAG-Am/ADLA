@@ -26,35 +26,35 @@ body{
         "header header ."
 }
 
-#grid-item-1{
+#grid-item-one{
     background-color: lightcoral;
     grid-column: 1 / 4;
     grid-row: span 1;
     height: 65px;
 }
 
-#grid-item-2{
+#grid-item-two{
     background-color: lightgreen;
     grid-column: 1 / 2; /* Positions it in the first column */
     grid-row: span 10;    /* Makes it span across 2 rows (beneath item 1) */
     height: calc(100%-16px);
 }
 
-#grid-item-3{
+#grid-item-three{
     background-color: lightblue;
     grid-column: span 2; /* Positions it in the first column */
     grid-row: span 1;    /* Makes it span across 2 rows (beneath item 1) */
     height: calc(100%-16px);
 }
 
-#grid-item-4{
+#grid-item-four{
     background-color: lightyellow;
     grid-column: span 1; /* Positions it in the first column */
     grid-row: span 9;    /* Makes it span across 2 rows (beneath item 1) */
     height: calc(100%-16px);
 }
 
-#grid-item-5{
+#grid-item-five{
     background-color: lightpink;
     grid-column: span 1; /* Positions it in the first column */
     grid-row: span 9;    /* Makes it span across 2 rows (beneath item 1) */

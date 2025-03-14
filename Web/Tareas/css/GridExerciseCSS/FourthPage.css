@@ -1,0 +1,87 @@
+body {
+    background-color: rgb(45, 45, 45);
+    height: 100vh;
+}
+
+.grid-container {
+    height: calc(100% - 16px);
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 2fr 6fr;
+    padding: 50px;
+
+    gap: 30px;
+}
+
+.grid-item {
+    background: rgb(221, 180, 221);
+    padding: 10px;
+    border: 5px solid lightgrey;
+}
+
+#grid-item-1 {
+    background-color: lightcoral;
+    grid-column: 1 / span 3;
+    grid-row: 1;
+}
+
+#grid-item-2 {
+    background-color: lightgreen;
+    grid-column: 4 / span 3;
+    grid-row: 1;
+}
+
+#grid-item-3 {
+    background-color: lightblue;
+    grid-column: 1 / span 3;
+    grid-row: 2;
+}
+
+#grid-item-4 {
+    background-color: lightgoldenrodyellow;
+    grid-column: 4 / span 3;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+}
+
+.nested-item {
+    padding: 10px;
+    border: 5px solid lightgrey;
+}
+
+#grid-item-5 {
+    border: 5px solid lightgrey;
+    background-color: lightpink;
+    grid-column: span 2;
+}
+
+#grid-item-6 {
+    border: 5px solid lightgrey;
+    background-color: lightseagreen;
+    grid-column: 1/2;
+    grid-row: 2;
+}
+
+#grid-item-7 {
+    border: 5px solid lightgrey;
+    background-color: lightgray;
+    grid-column: 2/2;
+    grid-row: 2;
+}
+
+a {
+    color: #a3d8d8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* hover is a reponsive attribute, which detects the cursor hovering over said elements */
+a:hover {
+    color: #f9c9d2; 
+    text-decoration: underline;
+}

@@ -1,0 +1,68 @@
+body{
+    background-color: rgb(45, 45, 45);
+    height: 100vh;
+}
+
+.grid-item{
+    background: rgb(221, 180, 221);
+    padding: 10px;
+    border: 5px solid lightgrey;
+}
+
+.grid-container{
+
+    height: calc(100% - 16px);
+
+    display: grid;
+
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1.2fr 1.55fr 0.5fr;
+
+    /*add padding to the top and bottom*/
+    padding: 50px;
+
+    gap: 30px;
+}
+
+#grid-item-1{
+    background-color: lightcoral;
+    grid-column: 1 / span 3; 
+    grid-row: 1;
+}
+
+#grid-item-2{
+    background-color: lightgreen;
+    grid-column: 4 / span 3;
+    grid-row: 1; 
+}
+
+#grid-item-3{
+    background-color: lightblue;
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    height: calc(100%-16px);
+}
+
+#grid-item-4{
+    background-color: lightyellow;
+    grid-column: 3 / span 4;
+    grid-row: 2;
+    height: calc(100%-16px);
+}
+
+#grid-item-5{
+    background-color: lightpink;
+    grid-column: 1 / span 6;
+    grid-row: 3;
+}
+a {
+    color: #a3d8d8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* hover is a reponsive attribute, which detects the cursor hovering over said elements */
+a:hover {
+    color: #f9c9d2; 
+    text-decoration: underline;
+}

@@ -3,7 +3,7 @@ body {
     height: 100vh;
 }
 
-.grid-container {
+.grid-container-4 {
     height: calc(100% - 16px);
 
     display: grid;
@@ -14,31 +14,31 @@ body {
     gap: 30px;
 }
 
-.grid-item {
+.grid-item-4 {
     background: rgb(221, 180, 221);
     padding: 10px;
     border: 5px solid lightgrey;
 }
 
-#grid-item-1 {
+#grid-item-fourth1 {
     background-color: lightcoral;
     grid-column: 1 / span 3;
     grid-row: 1;
 }
 
-#grid-item-2 {
+#grid-item-fourth2 {
     background-color: lightgreen;
     grid-column: 4 / span 3;
     grid-row: 1;
 }
 
-#grid-item-3 {
+#grid-item-fourth3 {
     background-color: lightblue;
     grid-column: 1 / span 3;
     grid-row: 2;
 }
 
-#grid-item-4 {
+#grid-item-fourth4 {
     background-color: lightgoldenrodyellow;
     grid-column: 4 / span 3;
     grid-row: 2;
@@ -54,20 +54,20 @@ body {
     border: 5px solid lightgrey;
 }
 
-#grid-item-5 {
+#grid-item-fourth5 {
     border: 5px solid lightgrey;
     background-color: lightpink;
     grid-column: span 2;
 }
 
-#grid-item-6 {
+#grid-item-fourth6 {
     border: 5px solid lightgrey;
     background-color: lightseagreen;
     grid-column: 1/2;
     grid-row: 2;
 }
 
-#grid-item-7 {
+#grid-item-fourth7 {
     border: 5px solid lightgrey;
     background-color: lightgray;
     grid-column: 2/2;

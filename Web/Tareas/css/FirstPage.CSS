@@ -108,6 +108,130 @@ body{
     height: calc(100%-16px);
 }
 
+.grid-item-3{
+    background: rgb(221, 180, 221);
+    padding: 10px;
+    border: 5px solid lightgrey;
+}
+
+.grid-container-3{
+
+    height: calc(100% - 16px);
+
+    display: grid;
+
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 1.2fr 1.55fr 0.5fr;
+
+    /*add padding to the top and bottom*/
+    padding: 50px;
+
+    gap: 30px;
+}
+
+#grid-item-third1{
+    background-color: lightcoral;
+    grid-column: 1 / span 3; 
+    grid-row: 1;
+}
+
+#grid-item-third2{
+    background-color: lightgreen;
+    grid-column: 4 / span 3;
+    grid-row: 1; 
+}
+
+#grid-item-third3{
+    background-color: lightblue;
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    height: calc(100%-16px);
+}
+
+#grid-item-third4{
+    background-color: lightyellow;
+    grid-column: 3 / span 4;
+    grid-row: 2;
+    height: calc(100%-16px);
+}
+
+#grid-item-third5{
+    background-color: lightpink;
+    grid-column: 1 / span 6;
+    grid-row: 3;
+}
+
+.grid-container-4 {
+    height: calc(100% - 16px);
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 2fr 6fr;
+    padding: 50px;
+
+    gap: 30px;
+}
+
+.grid-item-4 {
+    background: rgb(221, 180, 221);
+    padding: 10px;
+    border: 5px solid lightgrey;
+}
+
+#grid-item-fourth1 {
+    background-color: lightcoral;
+    grid-column: 1 / span 3;
+    grid-row: 1;
+}
+
+#grid-item-fourth2 {
+    background-color: lightgreen;
+    grid-column: 4 / span 3;
+    grid-row: 1;
+}
+
+#grid-item-fourth3 {
+    background-color: lightblue;
+    grid-column: 1 / span 3;
+    grid-row: 2;
+}
+
+#grid-item-fourth4 {
+    background-color: lightgoldenrodyellow;
+    grid-column: 4 / span 3;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+}
+
+.nested-item {
+    padding: 10px;
+    border: 5px solid lightgrey;
+}
+
+#grid-item-fourth5 {
+    border: 5px solid lightgrey;
+    background-color: lightpink;
+    grid-column: span 2;
+}
+
+#grid-item-fourth6 {
+    border: 5px solid lightgrey;
+    background-color: lightseagreen;
+    grid-column: 1/2;
+    grid-row: 2;
+}
+
+#grid-item-fourth7 {
+    border: 5px solid lightgrey;
+    background-color: lightgray;
+    grid-column: 2/2;
+    grid-row: 2;
+}
+
 a {
     color: #a3d8d8;
     text-decoration: none;

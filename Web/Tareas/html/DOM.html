@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..\css\blog_css.css">
+    <title>Respuestas sobre el DOM</title>
+</head>
+<body>
+
+   <!-- 1. ¿Qué es el DOM? -->
+<section>
+    <h2>¿Qué es el DOM?</h2>
+    <p>
+        El <strong>DOM (Document Object Model)</strong> es una interfaz de programación para documentos HTML y XML. Representa la estructura del documento como un árbol de nodos, donde cada nodo es un objeto que corresponde a una parte del documento.
+    </p>
+    <h2>Cita Textual</h2>
+    <p>
+       "Es una interfaz de programación para los documentos HTML y XML. Facilita una representación estructurada del documento y define de qué manera los programas pueden acceder, al fin de modificar, tanto su estructura, estilo y contenido. El DOM da una representación del documento como un grupo de nodos y objetos estructurados que tienen propiedades y métodos. Esencialmente, conecta las páginas web a scripts o lenguajes de programación." (Introducción - Referencia De La API Web | MDN, 2025)
+    </p>
+</section>
+
+<!-- 2. ¿Qué es un nodo? -->
+<section>
+    <h2>¿Qué es un nodo?</h2>
+    <p>
+        Un <strong>nodo</strong> en el DOM es una unidad básica de la estructura del documento. Puede representar diferentes partes de un documento, como un elemento, un atributo o el contenido de texto.
+    </p>
+    <p>Ejemplo:</p>
+    <pre><code>
+    // Un nodo de tipo "elemento"
+    var nodoElemento = document.getElementById("miElemento");
+
+    // Un nodo de tipo "texto"
+    var nodoTexto = document.createTextNode("Texto de ejemplo");
+    </code></pre>
+
+    <h2>Cita Textual</h2>
+    <p>
+       "Entonces, si pensamos en el árbol de etiquetas que hemos creado en nuestro post sobre cómo entender el DOM desde el inspector, podemos decir que cada una de las etiquetas main, section, article, div y p son un nodo. Dicho de manera simple, un nodo es una etiqueta HTML sobre la que vamos a poder realizar operaciones de lectura y de escritura." (Casero, 2025)
+    </p>
+</section>
+
+<!-- 3. ¿Cómo se accede a un elemento del DOM? -->
+<section>
+    <h2>¿Cómo se accede a un elemento del DOM?</h2>
+    <p>
+        Se puede acceder a un elemento del DOM utilizando métodos como <code>getElementById</code>, <code>getElementsByClassName</code> o <code>querySelector</code>. Ejemplo:
+    </p>
+    <pre><code>
+    // Obtener un elemento por su ID
+    var elemento = document.getElementById("miElemento");
+
+    // Obtener el primer elemento con una clase específica
+    var primerElementoClase = document.querySelector(".miClase");
+
+    // Obtener todos los elementos con una clase específica
+    var elementosClase = document.getElementsByClassName("miClase");
+    </code></pre>
+
+    <h2>Cita Textual</h2>
+    <p>
+       "Supongamos que queremos acceder a los atributos de uno de nuestros nodos. Entonces, podemos utilizar la propiedad attributes. Como hemos aprendido en nuestro post sobre la clase Element del DOM, la propiedad attributes nos devuelve un objeto con los atributos del nodo al que accedemos.
+
+       Pensemos entonces que queremos acceder al nodo de img que hemos determinado en el árbol que estamos usando de ejemplo. Este nodo es hijo de un nodo article, que a su vez se encuentra dentro de un section en el main de un body. Este nodo img tiene una propiedad src (fuente) y una propiedad alt (texto alternativo).
+       
+       Entonces, lo primero que debemos hacer es recorrer el camino del DOM hasta img. Como hemos aprendido en nuestro post sobre navegar por el árbol del DOM, para ello utilizamos la palabra clave children e insertamos el index del elemento al que queremos acceder.
+       
+       document.body.children[1].children[0].children[1].children[0]
+       Con la línea de código anterior hemos accedido al segundo hijo de body (main). Después, al primer hijo de main (section), luego al segundo hijo de section (article). Ahí hemos llegado al padre de img. Entonces, el último paso fue acceder a su único hijo.
+       
+       Ahora, ya que hemos llegado a un nodo en el DOM, también conocido como etiqueta HTML img, y este nodo extiende de la clase Element, podemos usar la propiedad attributes para acceder a los atributos de img:
+       
+       document.body.children[1].children[0].children[1].children[0].attributes
+       Como mencionamos antes, esta propiedad nos devolverá el listado de atributos. Es decir, veremos un mapa que nos dice que tenemos los atributos src y alt. Al desplegar cada uno de estos atributos encontraremos aún más detalles del nodo al que hemos llegado." (Casero, 2025)
+    </p>
+</section>
+</section>
+
+<!-- 4. ¿Cómo se modifica un elemento del DOM? -->
+<section>
+    <h2>¿Cómo se modifica un elemento del DOM?</h2>
+    <p>
+        Para modificar un elemento, se pueden usar propiedades como <code>innerHTML</code> o <code>style</code>. Ejemplo:
+    </p>
+    <pre><code>
+    // Cambiar el contenido HTML de un elemento
+    document.getElementById("miElemento").innerHTML = "Nuevo contenido";
+
+    // Cambiar el color del texto de un elemento
+    document.getElementById("miElemento").style.color = "red";
+    </code></pre>
+    <h2>Cita Textual</h2>
+    <p>"Los métodos hasAttribute() y getAttribute() se utilizan normalmente con instrucciones condicionales y los métodos setAttribute() y removeAttribute() se usan para modificar directamente el DOM. Las clases CSS se utilizan para aplicar estilos a varios elementos, a diferencia de los ID que solo pueden existir una vez por página. En JavaScript, contamos con las propied className y classList para trabajar con el atributo de clase.(Rascia, 2019)
+
+\        "</p>
+</section>
+
+<!-- 5. ¿Cuál es la diferencia entre getElementBy* y querySelector*? -->
+<section>
+    <h2>¿Cuál es la diferencia entre getElementBy* y querySelector*?</h2>
+    <p>
+        - <code>getElementById()</code> devuelve un solo elemento por su ID, mientras que <code>querySelector()</code> puede seleccionar elementos usando cualquier selector CSS.
+    </p>
+    <p>
+        - <code>getElementsByClassName()</code> devuelve una lista de nodos de los elementos con la clase dada, mientras que <code>querySelectorAll()</code> devuelve una lista de nodos de todos los elementos que coinciden con el selector CSS.
+    </p>
+    <pre><code>
+    // getElementById
+    var elemento = document.getElementById("miElemento");
+
+    // querySelector (puede usar cualquier selector CSS)
+    var elemento = document.querySelector("#miElemento"); // Selección por ID
+    var elementos = document.querySelectorAll(".miClase"); // Selección por clase
+    </code></pre>
+
+    <h2>Cita Textual</h2>
+    <p>
+       "Para la revisión, document.querySelector() y document.getElementById() son los métodos utilizados para acceder a un único elemento. Usando un div con un atributo id en el siguiente ejemplo, podemos acceder a ese elemento de cualquier forma. El método querySelector() es más sólido, ya que puede seleccionar un elemento en la página a través de cualquier tipo de selector." (Rascia, 2019)
+    </p>
+</section>
+
+<!-- 6. ¿Qué es un evento? -->
+<section>
+    <h2>¿Qué es un evento?</h2>
+    <p>
+        Un <strong>evento</strong> es una acción que ocurre en el navegador, como un clic del ratón, una pulsación de tecla, o el envío de un formulario.
+    </p>
+    <p>Ejemplo de evento de clic:</p>
+    <pre><code>
+    // Evento de clic en un botón
+    document.getElementById("miBoton").addEventListener("click", function() {
+        alert("¡Se hizo clic en el botón!");
+    });
+    </code></pre>
+    <h2>Cita Textual</h2>
+    <p>"Los eventos son cosas que suceden en el sistema que estás programando. El sistema se encarga de producir una señal de cierto tipo cuando un evento ocurre, y proporciona un mecanismo para que una acción se lleve a cabo (ejecutar código) de forma automática cuando el evento ocurra. Los eventos se lanzan dentro de la ventana del navegador y usualmente están asociados a un elemento en específico dentro de dicha ventana. Esto puede ser un solo elemento, un grupo de elementos, el documento HTML cargado la pestaña actual, o la ventana del navegador en su totalidad. Existen distintos tipos de eventos que pueden ocurrir."(Introducción a Los Eventos - Aprende Desarrollo Web | MDN, 2025)</p>
+</section>
+
+<!-- 7. ¿Qué es un listener? -->
+<section>
+    <h2>¿Qué es un listener?</h2>
+    <p>
+        Un <strong>listener</strong> es una función que se ejecuta cuando ocurre un evento específico en un elemento. Se asocia con el evento mediante el método <code>addEventListener</code>.
+    </p>
+    <p>Ejemplo de listener para un evento de clic:</p>
+    <pre><code>
+    // Listener para el evento de clic
+    document.getElementById("miBoton").addEventListener("click", function() {
+        alert("¡Hiciste clic en el botón!");
+    });
+    </code></pre>
+    <h2>Cita Textual</h2>
+    <p>"El objeto que recibe una notificación cuando un evento de el tipo especificado ocurre. Debe ser un objeto implementando la interfaz EventListener o solo una function en JavaScript."(Introducción a Los Eventos - Aprende Desarrollo Web | MDN, 2025)</p>
+</section>
+
+<!-- 8. ¿Qué es un callback? -->
+<section>
+    <h2>¿Qué es un callback?</h2>
+    <p>
+        Un <strong>callback</strong> es una función que se pasa como argumento a otra función, y se ejecuta después de que una operación ha finalizado, como una respuesta a un evento o un proceso asincrónico.
+    </p>
+    <p>Ejemplo de callback:</p>
+    <pre><code>
+    // Ejemplo de callback en una función asincrónica
+    function procesarDatos(callback) {
+        // Simulación de un proceso asincrónico
+        setTimeout(function() {
+            console.log("Datos procesados");
+            callback(); // Llamada al callback después de procesar los datos
+        }, 2000);
+    }
+
+    // Llamada a la función con un callback
+    procesarDatos(function() {
+        console.log("Callback ejecutado después de procesar los datos");
+    });
+    </code></pre>
+    <h2>Cita Textual</h2>
+    <p>"Los callbacks (a veces denominados funciones de retrollamada o funciones callback) no son más que un tipo de funciones que se pasan por parámetro a otras funciones."(¿Qué Son Los Callbacks? - Javascript En Español, n.d.)</p>
+</section>
+
+<!-- 9. ¿Qué es un objeto de evento? -->
+<section>
+    <h2>¿Qué es un objeto de evento?</h2>
+    <p>
+        Un <strong>objeto de evento</strong> contiene información sobre el evento que ha ocurrido, como el tipo de evento, el elemento sobre el que ocurrió y otros detalles específicos. Se pasa automáticamente a la función callback cuando un evento es disparado.
+    </p>
+    <p>Ejemplo de uso de un objeto de evento:</p>
+    <pre><code>
+    document.getElementById("miBoton").addEventListener("click", function(event) {
+        // El objeto event contiene información sobre el evento
+        console.log("Tipo de evento:", event.type); // Imprime el tipo de evento
+        console.log("Elemento objetivo:", event.target); // Imprime el elemento que disparó el evento
+    });
+    </code></pre>
+    <h2>Cita Textual</h2>
+    <p>"Los objetos de evento son estructuras JSON que se construyen automáticamente y se pasan como parámetros para activar funciones o devolver llamadas cuando un usuario interactúa con un complemento."(Objetos De Eventos, n.d.-b)</p>
+</section>
+
+    <section>
+        <h2>Ejemplo de codigo</h2>
+        <h2>Ejercicio 1: Posición del Mouse</h2>
+        <!-- Elemento para mostrar la posición del mouse -->
+        <div id="posicionMouse">Moviendo el ratón...</div>
+    
+        <script>
+            // Ejercicio 1: Mostrar la posición del mouse
+            const posicionDiv = document.getElementById("posicionMouse");
+    
+            document.addEventListener("mousemove", function(event) {
+                posicionDiv.innerHTML = "Posición del mouse: X=" + event.clientX + " Y=" + event.clientY;
+            });
+        </script>
+    
+        <hr>
+    
+        <h2>Ejercicio 2: Obtener Nombre Completo</h2>
+    
+        <!-- Formulario con nombre y apellido -->
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" placeholder="Escribe tu nombre"><br><br>
+    
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" placeholder="Escribe tu apellido"><br><br>
+    
+        <!-- Botón para mostrar el nombre completo -->
+        <button id="mostrarNombre">Mostrar Nombre Completo</button>
+    
+        <h3>Nombre Completo:</h3>
+        <!-- Aquí se mostrará el nombre completo -->
+        <div id="nombreCompleto"></div>
+    
+        <script>
+            // Ejercicio 2: Mostrar el nombre completo
+            const btnMostrarNombre = document.getElementById("mostrarNombre");
+            const nombreInput = document.getElementById("nombre");
+            const apellidoInput = document.getElementById("apellido");
+            const nombreCompletoDiv = document.getElementById("nombreCompleto");
+    
+            btnMostrarNombre.addEventListener("click", function() {
+                const nombre = nombreInput.value;
+                const apellido = apellidoInput.value;
+                const nombreCompleto = nombre + " " + apellido;
+                nombreCompletoDiv.innerHTML = nombreCompleto;
+            });
+        </script>
+
+<h2> Ejercicio 3 Tabla con opción para agregar fila o columna</h2>
+
+<!-- Tabla inicial -->
+<table id="tabla">
+    <tr>
+        <td>Row 1 column 1</td>
+        <td>Row 1 column 2</td>
+    </tr>
+    <tr>
+        <td>Row 2 column 1</td>
+        <td>Row 2 column 2</td>
+    </tr>
+</table>
+
+<br>
+
+<!-- Botones para agregar fila o columna -->
+<button id="agregarFila">Agregar Fila</button>
+<button id="agregarColumna">Agregar Columna</button>
+
+<script>
+    // Obtener elementos
+    const tabla = document.getElementById("tabla");
+    const botonAgregarFila = document.getElementById("agregarFila");
+    const botonAgregarColumna = document.getElementById("agregarColumna");
+
+    // Función para agregar una fila a la tabla
+    botonAgregarFila.addEventListener("click", function() {
+        // Creamos una nueva fila
+        const nuevaFila = document.createElement("tr");
+
+        // Obtenemos las celdas de la primera fila para saber cuántas columnas agregar
+        const columnas = tabla.rows[0].cells.length;
+
+        // Añadimos celdas a la fila
+        for (let i = 0; i < columnas; i++) {
+            const nuevaCelda = document.createElement("td");
+            nuevaCelda.textContent = "Nueva fila, columna " + (i + 1);
+            nuevaFila.appendChild(nuevaCelda);
+        }
+
+        // Agregamos la nueva fila al final de la tabla
+        tabla.appendChild(nuevaFila);
+    });
+
+    // Función para agregar una columna a la tabla
+    botonAgregarColumna.addEventListener("click", function() {
+        // Recorremos todas las filas de la tabla
+        for (let i = 0; i < tabla.rows.length; i++) {
+            const nuevaCelda = document.createElement("td");
+            nuevaCelda.textContent = "Nueva columna, fila " + (i + 1);
+            tabla.rows[i].appendChild(nuevaCelda);
+        }
+    });
+</script>
+
+<h2>Ejercicio 4 Actualizar Tabla en una posición específica</h2>
+
+<!-- Tabla Inicial -->
+<table id="tabla2">
+    <tr>
+        <td>Row1 cell1</td>
+        <td>Row1 cell2</td>
+        <td>Row1 cell3</td>
+    </tr>
+    <tr>
+        <td>Row2 cell1</td>
+        <td>Row2 cell2</td>
+        <td>Row2 cell3</td>
+    </tr>
+    <tr>
+        <td>Row3 cell1</td>
+        <td>Row3 cell2</td>
+        <td>Row3 cell3</td>
+    </tr>
+</table>
+
+<br>
+
+<!-- Entradas para fila, columna y texto -->
+<label for="fila">Fila (1-3):</label>
+<input type="number" id="fila" min="1" max="3"><br><br>
+
+<label for="columna">Columna (1-3):</label>
+<input type="number" id="columna" min="1" max="3"><br><br>
+
+<label for="texto">Texto a insertar:</label>
+<input type="text" id="texto"><br><br>
+
+<!-- Botón para actualizar la tabla -->
+<button id="actualizarTabla">Actualizar Tabla</button>
+
+<script>
+    // Obtener elementos
+    const botonActualizarTabla = document.getElementById("actualizarTabla");
+    const filaInput = document.getElementById("fila");
+    const columnaInput = document.getElementById("columna");
+    const textoInput = document.getElementById("texto");
+    const tabla2 = document.getElementById("tabla2");
+
+    // Función para actualizar el contenido de la tabla
+    botonActualizarTabla.addEventListener("click", function() {
+        // Obtener los valores ingresados
+        const fila = parseInt(filaInput.value) - 1;  // Restamos 1 para ajustarlo al índice 0
+        const columna = parseInt(columnaInput.value) - 1; // Restamos 1 para ajustarlo al índice 0
+        const texto = textoInput.value;
+
+        // Verificar si los valores son válidos
+        if (fila >= 0 && fila < tabla2.rows.length && columna >= 0 && columna < tabla2.rows[fila].cells.length) {
+            // Actualizar la celda seleccionada
+            tabla2.rows[fila].cells[columna].textContent = texto;
+        } else {
+            alert("Por favor, ingrese una fila y columna válidas.");
+        }
+    });
+</script>
+
+<h2> Ejercicio 5 Lista de Colores</h2>
+
+    <!-- Lista de opciones de colores -->
+    <select id="colorList">
+        <option value="Red">Red</option>
+        <option value="Green">Green</option>
+        <option value="Blue">Blue</option>
+    </select>
+
+    <br>
+
+    <!-- Botones para agregar y quitar colores -->
+    <button id="agregarColor">Agregar Color Aleatorio</button>
+    <button id="quitarColor">Quitar Color Seleccionado</button>
+
+    <br><br>
+
+    <script>
+        // Función para generar un color aleatorio en formato RGB
+        function generarColorAleatorio() {
+            const r = Math.floor(Math.random() * 256);
+            const g = Math.floor(Math.random() * 256);
+            const b = Math.floor(Math.random() * 256);
+            return `rgb(${r}, ${g}, ${b})`;
+        }
+
+        // Obtener elementos
+        const listaColores = document.getElementById("colorList");
+        const botonAgregarColor = document.getElementById("agregarColor");
+        const botonQuitarColor = document.getElementById("quitarColor");
+
+        // Función para agregar un color aleatorio
+        botonAgregarColor.addEventListener("click", function() {
+            const colorAleatorio = generarColorAleatorio(); // Generar un color aleatorio
+            const nuevaOpcion = document.createElement("option"); // Crear nueva opción
+            nuevaOpcion.value = colorAleatorio;
+            nuevaOpcion.textContent = colorAleatorio;
+            nuevaOpcion.style.backgroundColor = colorAleatorio; // Cambiar fondo de la opción al color generado
+            listaColores.appendChild(nuevaOpcion); // Agregar la nueva opción a la lista
+        });
+
+        // Función para quitar el color seleccionado
+        botonQuitarColor.addEventListener("click", function() {
+            const opcionSeleccionada = listaColores.selectedIndex;
+            if (opcionSeleccionada !== -1) { // Verificar si hay una opción seleccionada
+                listaColores.remove(opcionSeleccionada); // Quitar la opción seleccionada
+            } else {
+                alert("Por favor, selecciona un color para eliminar.");
+            }
+        });
+    </script>
+
+ 
+<h2>Ejercicio 6 Gatitos</h2>
+<!-- Imagen placeholder con ID -->
+<img id="gatito" src="http://placecats.com/200/300" alt="gatito" width="300" height="300">
+
+<script>
+    // Obtener la imagen por su ID
+    const imagenGatito = document.getElementById('gatito');
+
+    // Función para generar números aleatorios entre un rango
+    function generarNumeroAleatorio(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // Evento para cuando el mouse entra en la imagen
+    imagenGatito.addEventListener('mouseenter', function() {
+        // Generar tamaños aleatorios para el width y height
+        const nuevoWidth = generarNumeroAleatorio(300, 600);
+        const nuevoHeight = generarNumeroAleatorio(300, 600);
+
+        // Cambiar las dimensiones de la imagen
+        imagenGatito.style.width = `${nuevoWidth}px`;
+        imagenGatito.style.height = `${nuevoHeight}px`;
+
+        // Reemplazar la imagen de placeholder por otra similar
+        // Asegúrate de que la ruta de la nueva imagen sea correcta
+        imagenGatito.src = "http://placecats.com/200/400"; // Reemplaza con la ruta correcta
+    });
+
+    // Evento para cuando el mouse sale de la imagen
+    imagenGatito.addEventListener('mouseleave', function() {
+        // Restaurar las dimensiones originales
+        imagenGatito.style.width = '300px';
+        imagenGatito.style.height = '300px';
+
+        // Restaurar la imagen original
+        imagenGatito.src = "http://placecats.com/200/300"; // Reemplaza con la ruta correcta
+    });
+</script>
+</section>
+
+<section>
+    <h2>Conclusiones</h2>
+    <p>Mi experiencia general con la herramienta de ChatGPT fue tediosa. Pasa uno mayor cantidad de tiempo arreglando y entrenando a la herramienta que haciendo el código como tal. Si bien, fue capaz de resolver los primeros 5 problemas de código, cuando se le pide algo de redacción, como las primeras nueve preguntas, su enfoque es muy limitado y no es posible sustentar sus respuestas con fuentes confiables. La herramienta llega a ser redundante, por lo mismo. </p>
+    <p>Considero que el código que genera fue acertado y rápido de generar, pero al final del día, no es mi código y solamente lo entendí por ser funciones que ya había implementado en el reto o por investigarlas posteriormente. Considero que es una herramienta poco creativa, donde todos tienen la misma solución y no hay un incentivo para comprender lo que te genera. </p>
+    <p>Al ser una herramienta guiada por prompts, el hecho de que yo no le hago preguntas bien generadas limita las respuestas que obtenga de la herramienta.</p>
+    <p>Yo usaría chatgpt como una base. Por ejemplo, si hay un error usual en mi código donde falte un ;, poorque he pasado horas buscando ese tipo de errores que podria utilizar optimizando o trabajando en mi código. Igualmente, la usaría para conocer nuevas funciones que pueda implementar, pero necesitaría consultar otra fuente e incluso videos para comprender su implementación.</p>
+    <p>Programar con IA ofrece ventajas como la automatización de tareas repetitivas, la mejora en la eficiencia y la capacidad de generar soluciones innovadoras rápidamente, lo que puede acelerar el desarrollo de software. Sin embargo, también tiene desventajas, como la dependencia de la tecnología, el riesgo de generar código ineficiente o errores no detectados y la falta de creatividad y adaptabilidad que solo un programador humano puede aportar en situaciones complejas o ambiguas. Además, la integración de IA en proyectos puede aumentar la complejidad y los costos iniciales.</p>
+</section>
+</body>
+
